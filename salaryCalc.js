@@ -12,13 +12,13 @@ function submitEmployee() {
   let annualSalary = $('#annualSalaryInput').val();
   let table = $('#tableRows');
 
-  console.log(firstName, lastName, idNumber, jobTitle, annualSalary);
-
   table.append(`
+  <tr>
   <td>${firstName}</td>
   <td>${lastName}</td>
   <td>${idNumber}</td>
   <td>${jobTitle}</td>
   <td>${annualSalary}</td>
+  </tr>
   `);
 }
