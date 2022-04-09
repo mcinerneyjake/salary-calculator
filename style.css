@@ -55,6 +55,10 @@ p {
   background-color: aliceblue;
 }
 
+#monthlyCosts {
+  margin-right: 585px;
+}
+
 table {
   margin: 15px auto 15px auto;
   width: 1000px;

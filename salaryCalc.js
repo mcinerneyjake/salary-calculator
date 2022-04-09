@@ -53,9 +53,14 @@ function submitEmployee() {
     // Give the annualSalary a special class and add each appended annualSalary class
     // together to get the total salary for all employees
 
-    totalAnnualSalaryExpense += parseInt(employee.annualSalary);
+    let totalMonthlySalaryExpense = (totalAnnualSalaryExpense += parseInt(employee.annualSalary)) / 12;
     $('#monthlyCostAmount').empty();
-    $('#monthlyCostAmount').append(totalAnnualSalaryExpense);
+    $('#monthlyCostAmount').append(totalMonthlySalaryExpense.toFixed(2));
+
+    // If totalMonthlySalaryExpense > $20,000, turn backgroud color of #monthlyCostAmount to red.
+    if (totalMonthlySalaryExpense >= 20000) {
+      $('#monthlyCosts').css('background-color', 'red');
+    }
   }
 }
 
