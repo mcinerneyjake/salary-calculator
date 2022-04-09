@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#submitButton').on('click', submitEmployee);
-  $('.employeeDeleteButton').on('click', '.employeeData', deleteEmployee);
+  $(document).on('click', '.employeeData', deleteEmployee);
 }
 
 let employees = [];
