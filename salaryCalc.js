@@ -6,6 +6,7 @@ function onReady() {
 }
 
 let employees = [];
+let totalAnnualSalaryExpense = 0;
 
 function submitEmployee() {
   // Create employee object with necessary properties
@@ -51,6 +52,10 @@ function submitEmployee() {
 
     // Give the annualSalary a special class and add each appended annualSalary class
     // together to get the total salary for all employees
+
+    totalAnnualSalaryExpense += parseInt(employee.annualSalary);
+    $('#monthlyCostAmount').empty();
+    $('#monthlyCostAmount').append(totalAnnualSalaryExpense);
   }
 }
 
