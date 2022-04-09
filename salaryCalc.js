@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#submitButton').on('click', submitEmployee);
-  $('#removeButton').on('click', deleteEmployee);
+  $(document).on('click', '.employeeData', deleteEmployee);
 }
 
 let employees = [];
@@ -15,6 +15,7 @@ function submitEmployee() {
     idNumber: $('#idNumberInput').val(),
     jobTitle: $('#jobTitleInput').val(),
     annualSalary: $('#annualSalaryInput').val(),
+    deleteEmployee: `<button class="employeeDeleteButton">Delete</button>`,
   };
 
   // Push employee object into employees array
@@ -30,12 +31,13 @@ function submitEmployee() {
     // Give the annualSalary a special class and add each appended annualSalary class
     // together to get the total salary for all employees
     table.append(`
-  <tr>
+  <tr class= "employeeData">
   <td class="employeeFirstName">${employee.firstName}</td>
   <td class="employeeLastName">${employee.lastName}</td>
   <td class="employeeIdNumber">${employee.idNumber}</td>
   <td class="employeeJobTitle">${employee.jobTitle}</td>
   <td class="employeeAnnualSalary">$${employee.annualSalary}</td>
+  <td>${employee.deleteEmployee}</td>
   </tr>
   `);
 
@@ -51,4 +53,6 @@ function submitEmployee() {
   }
 }
 
-function deleteEmployee() {}
+function deleteEmployee() {
+  $(this).remove();
+}
