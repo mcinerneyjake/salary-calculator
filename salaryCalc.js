@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#submitButton').on('click', submitEmployee);
-  $(document).on('click', '.employeeData', deleteEmployee);
+  $('.employeeDeleteButton').on('click', '.employeeData', deleteEmployee);
 }
 
 let employees = [];
@@ -15,7 +15,6 @@ function submitEmployee() {
     idNumber: $('#idNumberInput').val(),
     jobTitle: $('#jobTitleInput').val(),
     annualSalary: $('#annualSalaryInput').val(),
-    deleteEmployee: `<button class="employeeDeleteButton">Delete</button>`,
   };
 
   // Push employee object into employees array
@@ -24,20 +23,19 @@ function submitEmployee() {
 
   // Loop through each entered employee
   let table = $('#tableRows');
+  let deleteEmployee = `<button class="employeeDeleteButton">Delete</button>`;
 
   for (let employee of employees) {
     // Give each <td> tag a class
     // Select the <td> class via jQuery
-    // Give the annualSalary a special class and add each appended annualSalary class
-    // together to get the total salary for all employees
     table.append(`
   <tr class= "employeeData">
-  <td class="employeeFirstName">${employee.firstName}</td>
-  <td class="employeeLastName">${employee.lastName}</td>
-  <td class="employeeIdNumber">${employee.idNumber}</td>
-  <td class="employeeJobTitle">${employee.jobTitle}</td>
-  <td class="employeeAnnualSalary">$${employee.annualSalary}</td>
-  <td>${employee.deleteEmployee}</td>
+  <td>${employee.firstName}</td>
+  <td>${employee.lastName}</td>
+  <td>${employee.idNumber}</td>
+  <td>${employee.jobTitle}</td>
+  <td>$${employee.annualSalary}</td>
+  <td>${deleteEmployee}</td>
   </tr>
   `);
 
@@ -50,6 +48,9 @@ function submitEmployee() {
     $('#idNumberInput').val('');
     $('#jobTitleInput').val('');
     $('#annualSalaryInput').val('');
+
+    // Give the annualSalary a special class and add each appended annualSalary class
+    // together to get the total salary for all employees
   }
 }
 

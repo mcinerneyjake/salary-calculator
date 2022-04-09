@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #a1cca5;
+}
+
+header {
+  margin: 40px 15px 0px 15px;
+  background-color: #415d43;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+h2 {
+  text-align: left;
+  margin: 30px 150px 0px 150px;
+  padding-left: 10px;
+  background-color: #415d43;
+  color: white;
+}
+
+p {
+  font-size: 15px;
+}
+
+#addInputs {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.inputStyling {
+  background-color: aliceblue;
+  padding-left: 5px;
+}
+
+#submitButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#submitButton {
+  width: 75px;
+  background-color: aliceblue;
+}
+
+table {
+  margin: 15px auto 15px auto;
+  width: 1000px;
+  height: auto;
+  background-color: #111d13;
+}
+
+#tableHeader {
+  justify-content: center;
+  align-content: center;
+  background-color: #53917e;
+}
+
+#tableRows {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+footer {
+  margin: 415px auto 0px auto;
+  text-align: center;
+  background-color: #415d43;
+}
+
+.employeeData:nth-child(odd) {
+  background-color: #63535b;
+}
+
+.employeeData:nth-child(even) {
+  background-color: #6e1a36;
+}
+
+.employeeDeleteButton {
+  width: 50px;
+  background-color: aliceblue;
+}

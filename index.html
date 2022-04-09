@@ -16,16 +16,21 @@
     <main>
       <h2>Add Employee</h2>
       <div id="addInputs">
-        <input id="firstNameInput" type="text" placeholder="First Name" />
-        <input id="lastNameInput" type="text" placeholder="Last Name" />
-        <input id="idNumberInput" type="text" placeholder="ID Number" />
-        <input id="jobTitleInput" type="text" placeholder="Job Title" />
-        <input id="annualSalaryInput" type="text" placeholder="Annual Salary" />
+        <input id="firstNameInput" type="text" placeholder="First Name" class="inputStyling" />
+        <input id="lastNameInput" type="text" placeholder="Last Name" class="inputStyling" />
+        <input id="idNumberInput" type="text" placeholder="ID Number" class="inputStyling" />
+        <input id="jobTitleInput" type="text" placeholder="Job Title" class="inputStyling" />
+        <input id="annualSalaryInput" type="text" placeholder="Annual Salary" class="inputStyling" />
       </div>
       <div id="submitButtonContainer">
         <button id="submitButton">Submit</button>
       </div>
-      <h2>Employees</h2>
+      <div>
+        <h2>
+          Employees
+          <p>Monthly Costs: $<span id="monthlyCostAmount">0</span></p>
+        </h2>
+      </div>
       <table>
         <thead id="tableHeader">
           <th id="firstName">First Name</th>
