@@ -2,6 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#submitButton').on('click', submitEmployee);
+  $('#removeButton').on('click', deleteEmployee);
 }
 
 let employees = [];
@@ -30,11 +31,11 @@ function submitEmployee() {
     // together to get the total salary for all employees
     table.append(`
   <tr>
-  <td>${employee.firstName}</td>
-  <td>${employee.lastName}</td>
-  <td>${employee.idNumber}</td>
-  <td>${employee.jobTitle}</td>
-  <td>$${employee.annualSalary}</td>
+  <td class="employeeFirstName">${employee.firstName}</td>
+  <td class="employeeLastName">${employee.lastName}</td>
+  <td class="employeeIdNumber">${employee.idNumber}</td>
+  <td class="employeeJobTitle">${employee.jobTitle}</td>
+  <td class="employeeAnnualSalary">$${employee.annualSalary}</td>
   </tr>
   `);
 
