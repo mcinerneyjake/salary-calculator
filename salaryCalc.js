@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#submitButton').on('click', submitEmployee);
-  $(document).on('click', '.employeeData', deleteEmployee);
+  $(document).on('click', '.employeeDeleteButton', deleteEmployee);
 }
 
 let employees = [];
@@ -24,21 +24,45 @@ function submitEmployee() {
 
   // Loop through each entered employee
   let table = $('#tableRows');
-  let deleteEmployee = `<button class="employeeDeleteButton">Delete</button>`;
+  let employeeDeleteButton = `<button class="employeeDeleteButton">Delete</button>`;
 
   for (let employee of employees) {
     // Give each <td> tag a class
     // Select the <td> class via jQuery
-    table.append(`
+    // Prevent user error with inputs
+    if (
+      employee.firstName === '' ||
+      employee.lastName === '' ||
+      employee.idNumber === '' ||
+      employee.jobTitle === '' ||
+      employee.annualSalary === ''
+    ) {
+      alert('Please fill all inputs.');
+    } else {
+      table.append(`
   <tr class= "employeeData">
   <td>${employee.firstName}</td>
   <td>${employee.lastName}</td>
   <td>${employee.idNumber}</td>
   <td>${employee.jobTitle}</td>
   <td>$${employee.annualSalary}</td>
-  <td>${deleteEmployee}</td>
+  <td>${employeeDeleteButton}</td>
   </tr>
   `);
+
+      // Give the annualSalary a special class and add each appended annualSalary class
+      // together to get the total salary for all employees
+
+      // If totalMonthlySalaryExpense > $20,000, turn backgroud color of #monthlyCostAmount to red.
+
+      let totalMonthlySalaryExpense = (totalAnnualSalaryExpense += parseInt(employee.annualSalary)) / 12;
+      $('#monthlyCostAmount').empty();
+      $('#monthlyCostAmount').append(totalMonthlySalaryExpense.toFixed(2));
+
+      if (totalMonthlySalaryExpense >= 20000) {
+        $('#monthlyCostAmount').css('color', 'red');
+      }
+    }
 
     // Empty employees array
     employees = [];
@@ -49,21 +73,10 @@ function submitEmployee() {
     $('#idNumberInput').val('');
     $('#jobTitleInput').val('');
     $('#annualSalaryInput').val('');
-
-    // Give the annualSalary a special class and add each appended annualSalary class
-    // together to get the total salary for all employees
-
-    let totalMonthlySalaryExpense = (totalAnnualSalaryExpense += parseInt(employee.annualSalary)) / 12;
-    $('#monthlyCostAmount').empty();
-    $('#monthlyCostAmount').append(totalMonthlySalaryExpense.toFixed(2));
-
-    // If totalMonthlySalaryExpense > $20,000, turn backgroud color of #monthlyCostAmount to red.
-    if (totalMonthlySalaryExpense >= 20000) {
-      $('#monthlyCosts').css('background-color', 'red');
-    }
   }
 }
 
 function deleteEmployee() {
-  $(this).remove();
+  $(this).closest('tr').remove();
+  //   $('#monthlyCostAmount');
 }
