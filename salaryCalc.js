@@ -8,7 +8,6 @@ function onReady() {
 let employees = [];
 let employeesToDelete = [];
 let totalAnnualSalaryExpense = 0;
-let totalMonthlySalaryExpense;
 
 function submitEmployee() {
   let employeeObject = {
@@ -42,7 +41,7 @@ function submitEmployee() {
   <td>${employee.lastName}</td>
   <td>${employee.idNumber}</td>
   <td>${employee.jobTitle}</td>
-  <td>$${employee.annualSalary}</td>
+  <td class="salary">$${employee.annualSalary}</td>
   <td>${employeeDeleteButton}</td>
   </tr>
   `);
@@ -58,13 +57,10 @@ function submitEmployee() {
   }
   employees = [];
 
-  $('#firstNameInput').val('');
-  $('#lastNameInput').val('');
-  $('#idNumberInput').val('');
-  $('#jobTitleInput').val('');
-  $('#annualSalaryInput').val('');
+  $('.inputStyling').val('');
 }
 
 function deleteEmployee() {
   $(this).closest('tr').remove();
+  $(this).closest('.salary').text('poopy butt hole');
 }
