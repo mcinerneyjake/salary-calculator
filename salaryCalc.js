@@ -62,5 +62,4 @@ function submitEmployee() {
 
 function deleteEmployee() {
   $(this).closest('tr').remove();
-  $(this).closest('.salary').text('poopy butt hole');
 }
